@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Login</title>
+        <!-- Add CSS stylesheet-->
+    </head> 
+    
+    <body>
+        <nav class="navbar">
+            <a href="/login" class="item">Login</a>
+            <a href="/logout" class="item">Logout</a>
+            <a href="/register" class="item">Register</a>
+            <a href="/" class="item">Home</a>
+        </nav>
+
+                     {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class="flashes">
+                    {% for message in messages %}
+                     <div class="message_flash">{{ message }}</div>
+                    {% endfor %}
+                        </ul>
+                         {% endif %}
+                    {% endwith %}
+                    {% block body %}
+                    {% endblock %}
+
+        <h1>Login below:</h1>
+        <form method="POST">
+            <label>Email:</label><br>
+            <input id="email" type="email" name="email" placeholder="Enter your email here..."/><br>
+
+            <label>Password:</label><br>
+            <input id="password" type="password" name="password" placeholder="Enter your password here..."/><br>
+        
+            <button type="submit">Login</button>   
+        </form>
+    </body>
+</html>
